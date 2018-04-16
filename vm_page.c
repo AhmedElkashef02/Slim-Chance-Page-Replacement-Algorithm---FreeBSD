@@ -2131,7 +2131,7 @@ vm_page_requeue(vm_page_t m)
 	pq = vm_page_pagequeue(m);
 	vm_pagequeue_lock(pq);
 	TAILQ_REMOVE(&pq->pq_pl, m, plinks.q);
-	TAILQ_INSERT_TAIL(&pq->pq_pl, m, plinks.q);
+	TAILQ_INSERT_HEAD(&pq->pq_pl, m, plinks.q);
 	vm_pagequeue_unlock(pq);
 }
 
@@ -2152,7 +2152,7 @@ vm_page_requeue_locked(vm_page_t m)
 	pq = vm_page_pagequeue(m);
 	vm_pagequeue_assert_locked(pq);
 	TAILQ_REMOVE(&pq->pq_pl, m, plinks.q);
-	TAILQ_INSERT_TAIL(&pq->pq_pl, m, plinks.q);
+	TAILQ_INSERT_HEAD(&pq->pq_pl, m, plinks.q);
 }
 
 /*
