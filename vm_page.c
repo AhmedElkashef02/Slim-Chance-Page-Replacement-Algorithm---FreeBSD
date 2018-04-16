@@ -2469,7 +2469,7 @@ void
 vm_page_deactivate(vm_page_t m)
 {
 
-	_vm_page_deactivate(m, 0);
+	_vm_page_deactivate(m, 1);
 }
 
 /*
