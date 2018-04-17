@@ -803,7 +803,7 @@ vm_phys_free_pages(vm_page_t m, int order)
 		} while (order < VM_NFREEORDER - 1);
 	}
 	fl = (*seg->free_queues)[m->pool];
-	vm_freelist_add(fl, m, order, 1);
+	vm_freelist_add(fl, m, order, 0);
 }
 
 /*
