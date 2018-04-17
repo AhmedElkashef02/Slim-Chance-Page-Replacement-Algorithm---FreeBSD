@@ -2436,6 +2436,8 @@ _vm_page_deactivate(vm_page_t m, int athead)
 	 * Ignore if the page is already inactive, unless it is unlikely to be
 	 * reactivated.
 	 */
+	if (m->queue == PQ_ACTIVE)
+		active_to_inactive++;
 	if ((queue = m->queue) == PQ_INACTIVE && !athead)
 		return;
 	if (m->wire_count == 0 && (m->oflags & VPO_UNMANAGED) == 0) {
