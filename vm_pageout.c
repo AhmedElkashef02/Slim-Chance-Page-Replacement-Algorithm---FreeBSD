@@ -1413,7 +1413,10 @@ relock_queues:
 	for (m = TAILQ_FIRST(&pq->pq_pl), scanned = 0; m != NULL && (scanned <
 	    min_scan || (page_shortage > 0 && scanned < maxscan)); m = next,
 	    scanned++) {
-
+		
+		scannedActive++;
+		activeQueueScanned = true;
+		
 		KASSERT(m->queue == PQ_ACTIVE,
 		    ("vm_pageout_scan: page %p isn't active", m));
 
