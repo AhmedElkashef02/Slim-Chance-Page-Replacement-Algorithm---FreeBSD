@@ -1035,7 +1035,6 @@ vm_pageout_scan(struct vm_domain *vmd, int pass)
 		KASSERT(m->queue == PQ_INACTIVE, ("Inactive queue %p", m));
 		
 		scannedInactive++;
-		inactiveQueueScanned = true;
 		
 		PCPU_INC(cnt.v_pdpages);
 		next = TAILQ_NEXT(m, plinks.q);
@@ -1420,7 +1419,6 @@ relock_queues:
 	    scanned++) {
 		
 		scannedActive++;
-		activeQueueScanned = true;
 		
 		KASSERT(m->queue == PQ_ACTIVE,
 		    ("vm_pageout_scan: page %p isn't active", m));
