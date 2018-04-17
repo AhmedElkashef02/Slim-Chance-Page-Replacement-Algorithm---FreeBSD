@@ -112,6 +112,11 @@ __FBSDID("$FreeBSD: releng/10.3/sys/vm/vm_pageout.c 292104 2015-12-11 13:20:51Z 
 #include <vm/vm_extern.h>
 #include <vm/uma.h>
 
+// important includes for logging the counters
+#include <sys/types.h>
+#include <sys/systm.h>
+#include <sys/syslog.h>
+
 /*
  * System initialization
  */
