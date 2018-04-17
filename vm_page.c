@@ -2462,7 +2462,7 @@ _vm_page_deactivate(vm_page_t m, int athead)
 		if (athead)
 			TAILQ_INSERT_HEAD(&pq->pq_pl, m, plinks.q);
 		else
-			TAILQ_INSERT_TAIL(&pq->pq_pl, m, plinks.q);
+			TAILQ_INSERT_HEAD(&pq->pq_pl, m, plinks.q);
 		vm_pagequeue_cnt_inc(pq);
 		vm_pagequeue_unlock(pq);
 	}
