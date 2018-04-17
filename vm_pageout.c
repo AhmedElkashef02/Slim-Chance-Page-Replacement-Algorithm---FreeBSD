@@ -1469,7 +1469,7 @@ relock_queues:
 				m->act_count = ACT_MAX;
 		} else {
 			// Instead of subtracting from the activity count, divide it by two
-			m->act_count -= m->act_count/2;
+			m->act_count = m->act_count/2;
 			act_delta = m->act_count;
 		}
 
