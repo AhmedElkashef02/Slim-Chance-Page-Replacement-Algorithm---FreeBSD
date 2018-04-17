@@ -2563,6 +2563,10 @@ vm_page_cache(vm_page_t m)
 	/*
 	 * Remove the page from the paging queues.
 	 */
+	
+	if(m->queue == PQ_INACTIVE)
+	 	inactive_to_cacheFree++;
+	
 	vm_page_remque(m);
 
 	/*
