@@ -375,6 +375,12 @@ extern vm_page_t vm_page_array;		/* First resident page in table */
 extern long vm_page_array_size;		/* number of vm_page_t's */
 extern long first_page;			/* first physical page number */
 
+// global variable counters
+extern int number_pages_queued_for_flush;
+extern int active_to_inactive;
+extern int inactive_to_active;
+extern int inactive_to_cacheFree;
+
 #define	VM_PAGE_IS_FREE(m)	(((m)->flags & PG_FREE) != 0)
 
 #define VM_PAGE_TO_PHYS(entry)	((entry)->phys_addr)
