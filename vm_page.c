@@ -2174,6 +2174,8 @@ vm_page_activate(vm_page_t m)
 		if (m->wire_count == 0 && (m->oflags & VPO_UNMANAGED) == 0) {
 			if (m->act_count < ACT_INIT)
 				m->act_count = ACT_INIT;
+			if (queue == PQ_INACTIVE) 
+				inactive_to_active++;
 			if (queue != PQ_NONE)
 				vm_page_dequeue(m);
 			vm_page_enqueue(PQ_ACTIVE, m);
