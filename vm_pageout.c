@@ -959,13 +959,10 @@ vm_pageout_scan(struct vm_domain *vmd, int pass)
 	int maxlaunder, scan_tick, scanned, starting_page_shortage;
 	int lockmode;
 	//variables to count the slim chance statistics.
-	int scannedInactive = 0;//done
-	int scannedActive = 0;	//done
-	int totalPerScan=0;
-	int activeQueueScanned = false;
-	int inactiveQueueScanned = false;
+	int scannedInactive = 0;
+	int scannedActive = 0;
 	boolean_t queues_locked;
-
+	
 	/*
 	 * If we need to reclaim memory ask kernel caches to return
 	 * some.  We rate limit to avoid thrashing.
