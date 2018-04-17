@@ -542,7 +542,10 @@ vm_pageout_flush(vm_page_t *mc, int count, int flags, int mreq, int *prunlen,
 		*eio = FALSE;
 	for (i = 0; i < count; i++) {
 		vm_page_t mt = mc[i];
-
+		
+		// Increment the count when page is flushed
+		number_pages_queued_for_flush++;
+		
 		KASSERT(pageout_status[i] == VM_PAGER_PEND ||
 		    !pmap_page_is_write_mapped(mt),
 		    ("vm_pageout_flush: page %p is not write protected", mt));
