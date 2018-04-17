@@ -2276,6 +2276,10 @@ vm_page_free_toq(vm_page_t m)
 	 * callback routine until after we've put the page on the
 	 * appropriate free queue.
 	 */
+	
+	if(m->queue == PQ_INACTIVE) 
+		inactive_to_cacheFree++;
+	
 	vm_page_remque(m);
 	vm_page_remove(m);
 
