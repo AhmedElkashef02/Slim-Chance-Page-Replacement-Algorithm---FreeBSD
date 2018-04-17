@@ -1028,7 +1028,10 @@ vm_pageout_scan(struct vm_domain *vmd, int pass)
 		vm_pagequeue_assert_locked(pq);
 		KASSERT(queues_locked, ("unlocked queues"));
 		KASSERT(m->queue == PQ_INACTIVE, ("Inactive queue %p", m));
-
+		
+		scannedInactive++;
+		inactiveQueueScanned = true;
+		
 		PCPU_INC(cnt.v_pdpages);
 		next = TAILQ_NEXT(m, plinks.q);
 
