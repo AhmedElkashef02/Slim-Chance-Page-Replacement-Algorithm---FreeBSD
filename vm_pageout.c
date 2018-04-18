@@ -1500,7 +1500,7 @@ relock_queues:
 	}
 #endif
 	log(LOG_INFO, "Inactive_scanned: %d,Active_scanned: %d, Total_Scanned: %d, Active pages: %d, Inactive pages: %d, Pages_queued_for_flush: %d, Inactive_to_cacheFree: %d, Inactive_to_active: %d, Active_to_inactive: %d", 
-			number_Inactive_scanned, number_active_scanned, number_Inactive_scanned + number_active_scanned, cnt.v_active_count, cnt.v_inactive_count, 
+			scannedInactive, scannedActive, scannedInactive + scannedActive, cnt.v_active_count, cnt.v_inactive_count, 
 			number_pages_queued_for_flush, inactive_to_cacheFree, inactive_to_active, active_to_inactive);
 	
 	active_to_inactive = 0;
