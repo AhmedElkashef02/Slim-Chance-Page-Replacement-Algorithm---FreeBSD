@@ -133,6 +133,11 @@ long vm_page_array_size;
 long first_page;
 int vm_page_zero_count;
 
+int number_pages_queued_for_flush = 0;
+int active_to_inactive = 0;
+int inactive_to_active = 0;
+int inactive_to_cacheFree = 0;
+
 static int boot_pages = UMA_BOOT_PAGES;
 TUNABLE_INT("vm.boot_pages", &boot_pages);
 SYSCTL_INT(_vm, OID_AUTO, boot_pages, CTLFLAG_RD, &boot_pages, 0,
