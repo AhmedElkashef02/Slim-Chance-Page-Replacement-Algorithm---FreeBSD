@@ -3,7 +3,7 @@ Implementing a FreeBSD Slim Chance Page Replacement Algorithm.
 Experimenting with the FreeBSD pageout daemon to modify how it selects pages for replacement in page faults, and to see how effective the policy is.
 
 ## Automated Setup
-- Run the executable file, which will remove and replace the new page replacement algorithm. build and install a new kernel for you. Use:`./SCA_setup`
+- Run the executable file, which will remove and replace the new page replacement algorithm. build and install a new kernel for you. Use:`./slim_setup`
 - Reboot
 
 ## Steps to achieve Slim Chance Algorithm:
